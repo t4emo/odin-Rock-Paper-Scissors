@@ -9,14 +9,7 @@ function getComputerChoice() {
   return tab[index];
 }
 
-function getHumanChoice() {
-  const question = prompt("rock paper or scissors ?");
-  return question.toLowerCase();
-}
-
 //TODO simplifier
-const humanChoice = getHumanChoice();
-const computerChoice = getComputerChoice();
 function playRound(humanChoice, computerChoice) {
   if (humanChoice == "rock" && computerChoice == "paper") {
     computerScore++;
@@ -41,16 +34,58 @@ function playRound(humanChoice, computerChoice) {
   } else return "Error";
 }
 
-function playGame() {
-  for (let i = 0; i < 5; i++) {
-    console.log(playRound(getHumanChoice(), getComputerChoice()));
+document.getElementById("btn-rock").addEventListener("click", function () {
+  document.getElementById("result").textContent = playRound(
+    "rock",
+    getComputerChoice(),
+  );
+  document.getElementById("score-human").textContent = humanScore;
+  document.getElementById("score-computer").textContent = computerScore;
+  if (humanScore === 5 || computerScore === 5) {
+    humanScore === 5 ? alert("You win !") : alert("You lose...");
+    humanScore = 0;
+    computerScore = 0;
+    document.getElementById("score-human").textContent = 0;
+    document.getElementById("score-computer").textContent = 0;
   }
-  if (humanScore > computerScore) {
-    return console.log("Human is winner");
-  } else if (computerScore > humanScore) {
-    return console.log("Computer is winner");
-  }
-  return console.log("Egality");
-}
+});
 
-playGame();
+document.getElementById("btn-paper").addEventListener("click", function () {
+  document.getElementById("result").textContent = playRound(
+    "paper",
+    getComputerChoice(),
+  );
+  document.getElementById("score-human").textContent = humanScore;
+  document.getElementById("score-computer").textContent = computerScore;
+  if (humanScore === 5 || computerScore === 5) {
+    humanScore === 5 ? alert("You win !") : alert("You lose...");
+    humanScore = 0;
+    computerScore = 0;
+    document.getElementById("score-human").textContent = 0;
+    document.getElementById("score-computer").textContent = 0;
+  }
+});
+
+document.getElementById("btn-scissors").addEventListener("click", function () {
+  document.getElementById("result").textContent = playRound(
+    "scissors",
+    getComputerChoice(),
+  );
+  document.getElementById("score-human").textContent = humanScore;
+  document.getElementById("score-computer").textContent = computerScore;
+  if (humanScore === 5 || computerScore === 5) {
+    humanScore === 5 ? alert("You win !") : alert("You lose...");
+    humanScore = 0;
+    computerScore = 0;
+    document.getElementById("score-human").textContent = 0;
+    document.getElementById("score-computer").textContent = 0;
+  }
+});
+
+document.getElementById("reset").addEventListener("click", function () {
+  humanScore = 0;
+  computerScore = 0;
+  document.getElementById("score-human").textContent = 0;
+  document.getElementById("score-computer").textContent = 0;
+  document.getElementById("result").textContent = "";
+});
