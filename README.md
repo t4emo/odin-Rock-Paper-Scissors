@@ -12,6 +12,6 @@ Click on Rock, Paper or Scissors to play a round against the computer. First to 
 - CSS
 - JavaScript
 
-## Project
+## Live
 
-Part of [The Odin Project](https://www.theodinproject.com) curriculum.
+[GitHub Pages](https://t4emo.github.io/odin-Rock-Paper-Scissors/)
